@@ -135,25 +135,25 @@ def page_data_preprocessing():
 
     else:
         st.info('Awaiting for CSV file to be uploaded.')
-        if st.button('Press to use Example Dataset'):
-        # Boston housing dataset
-            boston = load_boston()
-            X = pd.DataFrame(boston.data, columns=boston.feature_names)
-            Y = pd.Series(boston.target, name='response')
-            df = pd.concat( [X,Y], axis=1 )
+        # if st.button('Press to use Example Dataset'):
+        # # Boston housing dataset
+        #     boston = load_boston()
+        #     X = pd.DataFrame(boston.data, columns=boston.feature_names)
+        #     Y = pd.Series(boston.target, name='response')
+        #     df = pd.concat( [X,Y], axis=1 )
 
-            st.markdown('The Boston housing dataset is used as the example.')
-            st.write(df.head(5))
-            df = pd.read_csv(uploaded_file)
-            st.write("## View of dataset")
-            st.write(df.head())
-            #DATA PREPROCESSING
-            new_obj = DataPreprocessing(df)
-            x, y = new_obj.read_data()
-            X_train, X_test, y_train, y_test = new_obj.split(x, y)
-            # new_obj.cross_validate()  # Add parentheses to invoke the method
-            new_obj.show_data(X_train, X_test, x, y)  # Add parentheses to invoke the method
-            X_train_scaled, X_test_scaled = new_obj.standardization(X_train, X_test)
+        #     st.markdown('The Boston housing dataset is used as the example.')
+        #     st.write(df.head(5))
+        #     df = pd.read_csv(uploaded_file)
+        #     st.write("## View of dataset")
+        #     st.write(df.head())
+        #     #DATA PREPROCESSING
+        #     new_obj = DataPreprocessing(df)
+        #     x, y = new_obj.read_data()
+        #     X_train, X_test, y_train, y_test = new_obj.split(x, y)
+        #     # new_obj.cross_validate()  # Add parentheses to invoke the method
+        #     new_obj.show_data(X_train, X_test, x, y)  # Add parentheses to invoke the method
+        #     X_train_scaled, X_test_scaled = new_obj.standardization(X_train, X_test)
 
 
 class Regularizer:
